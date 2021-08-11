@@ -19,14 +19,26 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="font-sans antialiased bg-light">
+    
     <div id="app">
-        
-        @include('navigation-menu')
+            <div class="container-fluid">
+            
+            @include('navigation-menu')
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+            <!-- Page Heading -->
+        <header class="d-flex py-3 bg-white shadow-sm border-bottom">
+            <div class="container-fluid">
+                @yield('header')
+            </div>
+        </header>
+
+            <!-- Page Content -->
+            <main class="container-fluid my-5">
+                @include('shared.flash-message')
+                @yield('content')
+            </main>
+        </div>
     </div>
 </body>
 </html>
